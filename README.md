@@ -12,7 +12,7 @@
 - MQTT server
 
 ## Schema
-![SCHEME](https://github.com/mike1pol/moon-esp8266/blob/master/schemes/scheme1.png)
+![SCHEME](https://github.com/mike1pol/moon-esp8266/blob/master/schema/schema1.png)
 
 ## Install
 - Select you board in `platformio.ini` in `default_envs`
