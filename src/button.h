@@ -5,16 +5,10 @@
 #include "config.h"
 
 extern GButton btn;
-extern boolean state;
-extern boolean changed;
-extern int color;
-extern int bri;
-extern int prevBri;
+extern boolean state, changed;
+extern int bri, prevBri;
 
 class Button {
 public:
   void tick();
-
-private:
-  boolean isClicked = false;
 };

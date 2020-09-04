@@ -2,29 +2,33 @@
 
 #include <ArduinoOTA.h>
 #include <ESP8266mDNS.h>
+#include <FastLED.h>
 
 #include "config.h"
+#include "utils.h"
 
-extern void fillRedColor();
-extern void setBrightness(int b);
-extern void fillColor();
+extern int bri;
 
 enum OtaPhase {
-    None = 0,
-    GotFirstConfirm,
-    GotSecondConfirm,
-    InProgress,
-    Done
+  None = 0,
+  GotFirstConfirm,
+  GotSecondConfirm,
+  InProgress,
+  Done
 };
 
-class OtaManager
-{
-    public:
-        static OtaPhase OtaFlag;
-        bool RequestOtaUpdate();
-        void HandleOtaUpdate();
-    private:
-        long firstConfirmTime = 0;
-        long otaStartTime = 0;
-        void startOtaUpdate();
+class OtaManager {
+public:
+  static OtaPhase OtaFlag;
+
+  bool RequestOtaUpdate();
+
+  void HandleOtaUpdate();
+
+private:
+  int internalBri = 250;
+  unsigned long firstConfirmTime = 0;
+  unsigned long otaStartTime = 0;
+
+  void startOtaUpdate();
 };

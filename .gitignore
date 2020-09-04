@@ -5,3 +5,7 @@
 CMakeListsPrivate.txt
 CMakeLists.txt
 cmake-build-*/ 
+mobile/.idea
+mobile/.expo
+mobile/.expo-shared
+mobile/node_modules

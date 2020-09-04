@@ -2,36 +2,20 @@
 
 extern OtaManager ota;
 
-void Button::tick()
-{
+void Button::tick() {
   btn.tick();
-  if (btn.isSingle() && !btn.isHolded() && !btn.isHold())
-  {
+  if (btn.isSingle() && !btn.isHolded() && !btn.isHold()) {
     state = !state;
     changed = true;
 #if DEBUG
     Serial.println("Change state");
 #endif
-  }
-  else if (btn.isDouble())
-  {
-    color += 1;
-    if (color >= LED_COLOR_LEN)
-      color = 0;
-    changed = true;
-#if DEBUG
-    Serial.println("Change mode");
-#endif
-  }
-  else if (btn.isTriple())
-  {
+  } else if (btn.isTriple()) {
     ota.RequestOtaUpdate();
 #if DEBUG
     Serial.println("Handle OTA");
 #endif
-  }
-  else if (btn.isStep())
-  {
+  } else if (btn.isStep()) {
 #if DEBUG
     Serial.println("Change bri");
 #endif
